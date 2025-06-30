@@ -1,0 +1,10 @@
+{
+  "background_color": "#ffffff",
+  "description": "FitAppMVVM",
+  "display": "standalone",
+  "name": "FitAppMVVM",
+  "short_name": "FitAppMVVM",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/"
+}
