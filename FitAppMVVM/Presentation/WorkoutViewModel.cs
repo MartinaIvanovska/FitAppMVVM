@@ -25,24 +25,6 @@ namespace FitAppMVVM.Presentation
 
         public ObservableCollection<Workout> Workouts { get; } = new();
 
-        public WorkoutViewModel()
-        {
-            // Call async method but safely from constructor
-            _ = LoadWorkoutsAsync();
-        }
-
-        public async Task LoadWorkoutsAsync()
-        {
-            await DatabaseService.InitAsync(); // Ensure DB is ready
-
-            var workoutsFromDb = await DatabaseService.GetWorkoutsAsync();
-
-            Workouts.Clear();
-            foreach (var workout in workoutsFromDb)
-            {
-                Workouts.Add(workout);
-            }
-        }
 
 
         [RelayCommand]
@@ -57,6 +39,7 @@ namespace FitAppMVVM.Presentation
                 Date = DateTime.Now,
                 Notes = Notes
             };
+
 
             await DatabaseService.AddWorkoutAsync(workout);
 

@@ -27,5 +27,10 @@ namespace FitAppMVVM.Presentation
 			this.InitializeComponent();
             this.DataContext = new WorkoutViewModel();
         }
-	}
+
+        private void GoToHomePage_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(HomePage));
+        }
+    }
 }
