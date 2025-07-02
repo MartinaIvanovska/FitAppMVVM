@@ -20,7 +20,7 @@ namespace FitAppMVVM.Presentation
             // Call async method but safely from constructor
             _ = LoadWorkoutsAsync();
         }
-        public ObservableCollection<Workout> Workouts { get; } = new();
+        public ObservableCollection<Workout> Workouts { get;  } = new();
         public async Task LoadWorkoutsAsync()
         {
             await DatabaseService.InitAsync(); // Ensure DB is ready
@@ -33,6 +33,23 @@ namespace FitAppMVVM.Presentation
                 Workouts.Add(workout);
             }
         }
+
+        //public async Task DeleteAsync(Workout workout)
+        //{
+        //    await DatabaseService.InitAsync(); // Ensure DB is ready
+        //    Console.WriteLine("saka");
+        //    await DatabaseService.DeleteWorkoutAsync(workout.Id);
+
+        //    Workouts.Remove(workout);
+          
+        //}
+
+        //public void Delete(Workout w)
+        //{
+        //    Console.WriteLine("prv klik");
+        //    DeleteAsync(w);
+        //}
+
 
 
 

@@ -18,12 +18,12 @@
            Spacing="16">
 
 
-            <TextBox Text="{Binding Name, Mode=TwoWay}" PlaceholderText="Enter the name:" />
-            <TextBox Text="{Binding Notes, Mode=TwoWay}" PlaceholderText="Enter a note:" />
+            <TextBox x:Name="TextBoxName" Text="{Binding Name, Mode=TwoWay}" PlaceholderText="Enter the name:" />
+            <TextBox x:Name="TextBoxNote" Text="{Binding Notes, Mode=TwoWay}" PlaceholderText="Enter a note:" />
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
                 <Button Content="Back To Home Page" Click="GoToHomePage_Click" />
-                <Button Content="Add Workout" Command="{Binding AddWorkoutCommand}" />
+                <Button Content="Add Workout" Command="{Binding AddWorkoutCommand}" Click="GoToWorkoutDetailsPage_Click" />
             </StackPanel>
             
             
