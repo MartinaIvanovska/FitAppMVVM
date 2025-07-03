@@ -22,31 +22,46 @@ namespace FitAppMVVM.Presentation
 	/// </summary>
 	public sealed partial class WorkoutDetailsPage : Page
 	{
-		public WorkoutDetailsPage()
-		{
-			this.InitializeComponent();
-            this.DataContext = new WorkoutDetailsViewModel();
+        private WorkoutDetailsViewModel _viewModel;
+        private int id;
+
+        public WorkoutDetailsPage()
+        {
+            this.InitializeComponent();
+            // Removed DataContext assignment here
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);
 
-            if (e.Parameter is Workout data)
+
+
+            if (e.Parameter is Workout workout)
             {
-                string name = data.Name;
-                string note = data.Notes;
-
-                TextBlockName.Text = name;
-                TextBlockNote.Text = note;
-
+                _viewModel = new WorkoutDetailsViewModel(workout.Id);
+                this.DataContext = workout;
+                id = workout.Id;
             }
+
+            //base.OnNavigatedTo(e);
+
+            //if (e.Parameter is Workout workout)
+            //{
+            //    this.DataContext = workout; 
+            //}
         }
+
 
         private void GoToHomePage_Click(object sender, RoutedEventArgs e)
         {
             // Navigate to WorkoutPage
             this.Frame.Navigate(typeof(HomePage));
+        }
+
+        private void AddExercise_Click(object sender, RoutedEventArgs e)
+        {
+
+            this.Frame.Navigate(typeof(AddExercisePage), id);
         }
 
     }

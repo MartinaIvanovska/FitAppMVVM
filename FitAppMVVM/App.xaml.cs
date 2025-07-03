@@ -113,7 +113,8 @@ public partial class App : Application
             new DataViewMap<SecondPage, SecondViewModel, Entity>(),
             new ViewMap<WorkoutPage, WorkoutViewModel>(),
             new ViewMap<HomePage, HomePageViewModel>(),
-            new ViewMap<WorkoutDetailsPage, WorkoutDetailsViewModel>()
+            new ViewMap<WorkoutDetailsPage, WorkoutDetailsViewModel>(),
+            new ViewMap<AddExercisePage, AddExerciseViewModel>()
         );
 
         routes.Register(
@@ -125,6 +126,7 @@ public partial class App : Application
                     new ("Workout", View: views.FindByViewModel<WorkoutViewModel>()),
                     new ("HomePage", View: views.FindByViewModel<HomePageViewModel>(), IsDefault:true),
                     new ("WorkoutDetails", View: views.FindByViewModel<WorkoutDetailsViewModel>()),
+                    new ("AddExercise", View: views.FindByViewModel<AddExerciseViewModel>()),
                 ]
             )
         );
