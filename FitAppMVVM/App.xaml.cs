@@ -111,7 +111,9 @@ public partial class App : Application
             new ViewMap(ViewModel: typeof(ShellViewModel)),
             new ViewMap<MainPage, MainViewModel>(),
             new DataViewMap<SecondPage, SecondViewModel, Entity>(),
-            new ViewMap<WorkoutPage, WorkoutViewModel>()
+            new ViewMap<WorkoutPage, WorkoutViewModel>(),
+            new ViewMap<HomePage, HomePageViewModel>(),
+            new ViewMap<WorkoutDetailsPage, WorkoutDetailsViewModel>()
         );
 
         routes.Register(
@@ -120,7 +122,9 @@ public partial class App : Application
                 [
                     new ("Main", View: views.FindByViewModel<MainViewModel>()),
                     new ("Second", View: views.FindByViewModel<SecondViewModel>()),
-                    new ("Workout", View: views.FindByViewModel<WorkoutViewModel>(), IsDefault:true),
+                    new ("Workout", View: views.FindByViewModel<WorkoutViewModel>()),
+                    new ("HomePage", View: views.FindByViewModel<HomePageViewModel>(), IsDefault:true),
+                    new ("WorkoutDetails", View: views.FindByViewModel<WorkoutDetailsViewModel>()),
                 ]
             )
         );

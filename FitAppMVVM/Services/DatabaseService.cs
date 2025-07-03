@@ -34,6 +34,12 @@ namespace FitAppMVVM.Services
             return _database.InsertAsync(workout);
         }
 
+        public static async Task DeleteWorkoutAsync(int id)
+        {
+            int rez= await _database.DeleteAsync<Workout>(id);
+            Console.WriteLine(rez);
+        }
+
         public static Task<List<Workout>> GetWorkoutsAsync()
         {
             return _database.Table<Workout>().ToListAsync();
