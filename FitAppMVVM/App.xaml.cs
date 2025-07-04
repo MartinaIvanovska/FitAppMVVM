@@ -18,12 +18,16 @@ public partial class App : Application
       
 
     }
+    public static AddExerciseViewModel MainViewModel { get; set; }
 
+    public static Frame MainFrame { get; set; }
     protected Window? MainWindow { get; private set; }
     protected IHost? Host { get; private set; }
 
     protected async override void OnLaunched(LaunchActivatedEventArgs args)
     {
+        MainViewModel = new AddExerciseViewModel();
+
         var builder = this.CreateBuilder(args)
             // Add navigation support for toolkit controls such as TabBar and NavigationView
             .UseToolkitNavigation()
@@ -89,6 +93,7 @@ public partial class App : Application
                 {
                     // TODO: Register your services
                     //services.AddSingleton<IMyService, MyService>();
+                    services.AddTransient<WorkoutDetailsViewModel>();
                 })
                 .UseNavigation(RegisterRoutes)
             );
@@ -113,7 +118,9 @@ public partial class App : Application
             new DataViewMap<SecondPage, SecondViewModel, Entity>(),
             new ViewMap<WorkoutPage, WorkoutViewModel>(),
             new ViewMap<HomePage, HomePageViewModel>(),
-            new ViewMap<WorkoutDetailsPage, WorkoutDetailsViewModel>()
+            new ViewMap<WorkoutDetailsPage, WorkoutDetailsViewModel>(),
+            new ViewMap<AddExercisePage, AddExerciseViewModel>()
+
         );
 
         routes.Register(
@@ -125,6 +132,8 @@ public partial class App : Application
                     new ("Workout", View: views.FindByViewModel<WorkoutViewModel>()),
                     new ("HomePage", View: views.FindByViewModel<HomePageViewModel>(), IsDefault:true),
                     new ("WorkoutDetails", View: views.FindByViewModel<WorkoutDetailsViewModel>()),
+                    new ("AddExercise", View: views.FindByViewModel<AddExerciseViewModel>())
+
                 ]
             )
         );

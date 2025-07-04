@@ -4,7 +4,12 @@
        xmlns:utum="using:Uno.Toolkit.UI.Material">
 
   <Application.Resources>
-    <ResourceDictionary>
+        <!-- <Style x:Key="InputLabelStyle" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="0,0,0,4"/>
+        </Style> -->
+        <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <!-- Load WinUI resources -->
         <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />

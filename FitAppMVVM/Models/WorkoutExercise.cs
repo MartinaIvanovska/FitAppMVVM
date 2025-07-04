@@ -25,6 +25,7 @@ namespace FitAppMVVM.Models
         public WorkoutExercise(int workoutId ,string exerciseName, int sets, int reps, double weight)
         {
             WorkoutId = workoutId;
+            Console.WriteLine($"Created new exercise with WorkoutId: {WorkoutId}");
             ExerciseName = exerciseName;
             Sets = sets;
             Reps = reps;
@@ -33,6 +34,7 @@ namespace FitAppMVVM.Models
 
         public WorkoutExercise()
         {
+            
         }
     }
 }

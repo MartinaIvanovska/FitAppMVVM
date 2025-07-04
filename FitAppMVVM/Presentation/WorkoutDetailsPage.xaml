@@ -20,15 +20,14 @@
                 <TextBlock x:Name="TextBlockNote" FontSize="16"/>
             </StackPanel>
 
-            <!-- Exercises Header -->
-            <TextBlock Text="Exercises:" FontWeight="Bold" FontSize="20" Margin="0,20,0,10"/>
+            <!-- Section Header -->
+            <TextBlock Text="Workout Exercises"
+           FontSize="24"
+           FontWeight="SemiBold"
+           Margin="0,20,0,10"/>
 
-            <!-- Exercises Table -->
-            <Grid Background="#f0f0f0" Padding="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+            <!-- Table Header Row -->
+            <Grid Padding="10" Background="#dcdcdc" Margin="0,0,0,10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
@@ -38,32 +37,61 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- Header Row -->
-                <TextBlock Text="Name" FontWeight="Bold" Grid.Row="0" Grid.Column="0" />
-                <TextBlock Text="Reps" FontWeight="Bold" Grid.Row="0" Grid.Column="1" />
-                <TextBlock Text="Sets" FontWeight="Bold" Grid.Row="0" Grid.Column="2" />
-                <TextBlock Text="Weight" FontWeight="Bold" Grid.Row="0" Grid.Column="3" />
-                <TextBlock Text="" Grid.Row="0" Grid.Column="4" />
-                <TextBlock Text="" Grid.Row="0" Grid.Column="5" />
-
-                <!-- Example Data Row (Repeat using ListView/ItemsControl for dynamic content) -->
-                <TextBlock Text="Bench Press" Grid.Row="1" Grid.Column="0"/>
-                <TextBlock Text="10" Grid.Row="1" Grid.Column="1"/>
-                <TextBlock Text="3" Grid.Row="1" Grid.Column="2"/>
-                <TextBlock Text="70kg" Grid.Row="1" Grid.Column="3"/>
-                <Button Content="Edit" Background="#a0a0ff" Foreground="White" Margin="4"
-                        Grid.Row="1" Grid.Column="4"/>
-                <Button Content="Delete" Background="#8080d0" Foreground="White" Margin="4"
-                        Grid.Row="1" Grid.Column="5"/>
+                <TextBlock Text="Exercise" Grid.Column="0" FontWeight="Bold"/>
+                <TextBlock Text="Reps" Grid.Column="1" FontWeight="Bold"/>
+                <TextBlock Text="Sets" Grid.Column="2" FontWeight="Bold"/>
+                <TextBlock Text="Weight" Grid.Column="3" FontWeight="Bold"/>
+                <TextBlock Text="Edit" Grid.Column="4" FontWeight="Bold"/>
+                <TextBlock Text="Delete" Grid.Column="5" FontWeight="Bold"/>
             </Grid>
 
-            <!-- Add Exercise Button -->
+            <!-- List of Exercises -->
+            <ListView x:Name="ExercisesListView" ItemsSource="{Binding Exercises}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="0" Margin="0,0,0,10" Background="#f0f0f0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border BorderBrush="#ccc" BorderThickness="0,0,1,0" Padding="10" Grid.Column="0">
+                                <TextBlock Text="{Binding ExerciseName}" />
+                            </Border>
+                            <Border BorderBrush="#ccc" BorderThickness="1,0,1,0" Padding="10" Grid.Column="1">
+                                <TextBlock Text="{Binding Reps}" />
+                            </Border>
+                            <Border BorderBrush="#ccc" BorderThickness="0,0,1,0" Padding="10" Grid.Column="2">
+                                <TextBlock Text="{Binding Sets}" />
+                            </Border>
+                            <Border BorderBrush="#ccc" BorderThickness="0,0,1,0" Padding="10" Grid.Column="3">
+                                <TextBlock Text="{Binding Weight}" />
+                            </Border>
+                            <Border BorderBrush="#ccc" BorderThickness="0,0,1,0" Padding="4" Grid.Column="4">
+                                <Button Content="Edit" Background="#a0a0ff" Foreground="White"/>
+                            </Border>
+                            <Border Padding="4" Grid.Column="5">
+                                <Button Content="Delete" Background="#8080d0" Foreground="White"/>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+            <!-- Change the Add Exercise Button to use Click instead of Command -->
             <Button Content="Add an Exercise"
-                    HorizontalAlignment="Left"
-                    Padding="10,5"
-                    Margin="0,20,0,0"
-                    Background="#e0e0e0"
-                    Foreground="Black"/>
+        HorizontalAlignment="Left"
+        Padding="10,5"
+        Margin="0,20,0,0"
+        Background="#e0e0e0"
+        Foreground="Black"
+        Click="AddExercise_Click"/>
 
         </StackPanel>
     </ScrollViewer>

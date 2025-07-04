@@ -1,53 +1,49 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+using FitAppMVVM.Models;
 
 namespace FitAppMVVM.Presentation
 {
-	/// <summary>
-	/// An empty page that can be used on its own or navigated to within a Frame.
-	/// </summary>
-	public sealed partial class WorkoutDetailsPage : Page
-	{
-		public WorkoutDetailsPage()
-		{
-			this.InitializeComponent();
-            this.DataContext = new WorkoutDetailsViewModel();
+    public sealed partial class WorkoutDetailsPage : Page
+    {
+        public WorkoutDetailsViewModel ViewModel { get; set; }
+
+        public WorkoutDetailsPage()
+        {
+            this.InitializeComponent();
+            ViewModel = new WorkoutDetailsViewModel();
+            this.DataContext = ViewModel;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
-            if (e.Parameter is Workout data)
+            if (e.Parameter is Workout workout)
             {
-                string name = data.Name;
-                string note = data.Notes;
-
-                TextBlockName.Text = name;
-                TextBlockNote.Text = note;
-
+                Console.WriteLine($"DEBUG: Received workout with ID: {workout.Id}"); 
+                ViewModel.SetWorkout(workout);
             }
         }
 
         private void GoToHomePage_Click(object sender, RoutedEventArgs e)
         {
-            // Navigate to WorkoutPage
             this.Frame.Navigate(typeof(HomePage));
         }
 
+        private void AddExercise_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine($"DEBUG: Current workout ID: {ViewModel.Workout?.Id}");
+            if (ViewModel.Workout != null)
+            {
+                this.Frame.Navigate(typeof(AddExercisePage), ViewModel.Workout.Id);
+            }
+            else
+            {
+                Console.WriteLine("ERROR: Workout is null!");
+            }
+
+        }
     }
 }

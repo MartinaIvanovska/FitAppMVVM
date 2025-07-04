@@ -44,5 +44,18 @@ namespace FitAppMVVM.Services
         {
             return _database.Table<Workout>().ToListAsync();
         }
+
+        public static Task<int> AddExerciseAsync(WorkoutExercise exercise)
+        {
+            return _database.InsertAsync(exercise);
+        }
+
+        public static Task<List<WorkoutExercise>> GetExercisesForWorkoutAsync(int workoutId)
+        {
+            return _database.Table<WorkoutExercise>()
+                           .Where(e => e.WorkoutId == workoutId)
+                           .ToListAsync();
+        }
+
     }
 }
