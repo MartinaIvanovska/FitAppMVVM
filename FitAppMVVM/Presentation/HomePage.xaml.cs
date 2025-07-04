@@ -36,6 +36,12 @@ public sealed partial class HomePage : Page
         this.Frame.Navigate(typeof(WorkoutPage));
     }
 
+    private void GoToCalendarPage_Click(object sender, RoutedEventArgs e)
+    {
+        // Navigate to CalendarPage
+        this.Frame.Navigate(typeof(CalendarPage));
+    }
+
     private void WorkoutListView_ItemClick(object sender, ItemClickEventArgs e)
     {
         if (e.ClickedItem is Workout selectedWorkout)
