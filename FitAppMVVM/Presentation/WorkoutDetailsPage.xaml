@@ -14,14 +14,14 @@
             <!-- Workout Info -->
             <StackPanel Spacing="8">
                 <TextBlock Text="Name:" FontWeight="Bold" FontSize="18"/>
-                <TextBlock x:Name="TextBlockName" Text="{Binding Name}" />
+                <TextBlock x:Name="TextBlockName" />
                 
               
 
                 <TextBlock Text="Note:" FontWeight="Bold" FontSize="18"/>
-                <TextBlock x:Name="TextBlockNote" Text="{Binding Notes}" />
+                <TextBlock x:Name="TextBlockNote" />
 
-                <TextBlock x:Name="TextBlockId" Text="{Binding Id}" Visibility="Collapsed"/>
+                <TextBlock x:Name="TextBlockId"  Visibility="Collapsed"/>
             </StackPanel>
 
             <!-- Exercises Header -->
@@ -38,12 +38,12 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
                 <!-- Header Row -->
-                <TextBlock Text="Name" FontWeight="Bold" Grid.Row="0" Grid.Column="0" />
+                <TextBlock Text="Name" FontWeight="Bold" Grid.Row="0" Grid.Column="0"  />
                 <TextBlock Text="Reps" FontWeight="Bold" Grid.Row="0" Grid.Column="1" />
                 <TextBlock Text="Sets" FontWeight="Bold" Grid.Row="0" Grid.Column="2" />
                 <TextBlock Text="Weight" FontWeight="Bold" Grid.Row="0" Grid.Column="3" />
@@ -51,15 +51,25 @@
                 <TextBlock Text="" Grid.Row="0" Grid.Column="5" />
 
                 <!-- Example Data Row (Repeat using ListView/ItemsControl for dynamic content) -->
-                <ListView ItemsSource="{Binding Exercises}">
+                <ListView ItemsSource="{Binding Exercises}" Grid.Row="1" Grid.ColumnSpan="6">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="20,20,0,0" HorizontalAlignment="Left" Spacing="16">
-                                <TextBlock Text="{Binding ExerciseName}" />
-                                <TextBlock Text="{Binding Sets}" />
-                                <TextBlock Text="{Binding Reps}" />
-                                <TextBlock Text="{Binding Weight}" />
-                            </StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="{Binding ExerciseName}" Grid.Column="0" />
+                                <TextBlock Text="{Binding Reps}" Grid.Column="1" />
+                                <TextBlock Text="{Binding Sets}" Grid.Column="2" />
+                                <TextBlock Text="{Binding Weight}" Grid.Column="3" />
+                                <Button Click="DeleteExercise_Click" Content="Delete" Grid.Column="4" />
+                            </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

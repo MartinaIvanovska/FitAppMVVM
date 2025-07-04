@@ -29,28 +29,30 @@
 
         <!-- Sets -->
         <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,10,10" Text="Sets:" VerticalAlignment="Center" />
-        <TextBox Text="{Binding ExerciseSets, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" 
-             Height="35" CornerRadius="8" Padding="10" Background="#E0E0E0"/>
+        <NumberBox Text="{Binding ExerciseSets, Mode=TwoWay}" SpinButtonPlacementMode="Inline" Minimum="0" Maximum="100"
+    SmallChange="1" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" Height="40" CornerRadius="8" Padding="10" Background="#E0E0E0"/>
+        
 
         <!-- Reps -->
         <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,10,10" Text="Reps:" VerticalAlignment="Center" />
-        <TextBox Text="{Binding ExerciseReps, Mode=TwoWay}" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" 
-             Height="35" CornerRadius="8" Padding="10" Background="#E0E0E0"/>
-
+        <NumberBox Text="{Binding ExerciseReps, Mode=TwoWay}" SpinButtonPlacementMode="Inline" Minimum="0" Maximum="100"
+SmallChange="1" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" Height="40" CornerRadius="8" Padding="10" Background="#E0E0E0"/>
+       
         <!-- Weight -->
         <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,0,10,20" Text="Weight:" VerticalAlignment="Center" />
-        <TextBox Text="{Binding ExerciseWeight, Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="0,0,0,20" 
-             Height="35" CornerRadius="8" Padding="10" Background="#E0E0E0"/>
+        <NumberBox Text="{Binding ExerciseWeight, Mode=TwoWay}" SpinButtonPlacementMode="Inline" Minimum="0" Maximum="100"
+SmallChange="5" Grid.Row="3" Grid.Column="1" Margin="0,0,0,10" Height="40" CornerRadius="8" Padding="10" Background="#E0E0E0"/>
+        
 
         <!-- Buttons -->
         <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left" Spacing="10">
-            <Button   Click="AddExerciseOn_click" Content="Add" Width="120" Height="40" 
+            <Button   Command="{Binding AddExerciseCommand}"  Content="Add" Width="120" Height="40" 
                 Background="#3B82F6" Foreground="White" CornerRadius="10"/>
-            <Button Content="Discard exercise" Width="140" Height="40"
+            <Button Content="Go back" Click="GoToDetails_click" Width="140" Height="40"
                 Background="#E5E7EB" Foreground="Black" CornerRadius="10"/>
         </StackPanel>
 
-        <TextBlock Visibility="Collapsed"  Text="{Binding WorkoutId, Mode=TwoWay}"/>
+        <TextBlock Visibility="Collapsed" />
     </Grid>
 
 </Page>

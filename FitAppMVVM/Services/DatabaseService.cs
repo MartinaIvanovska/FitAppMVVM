@@ -45,6 +45,12 @@ namespace FitAppMVVM.Services
             Console.WriteLine(rez);
         }
 
+        public static async Task DeleteExerciseAsync(int id)
+        {
+            int rez = await _database.DeleteAsync<WorkoutExercise>(id);
+            Console.WriteLine(rez);
+        }
+
         public static Task<List<Workout>> GetWorkoutsAsync()
         {
             return _database.Table<Workout>().ToListAsync();
@@ -63,6 +69,17 @@ namespace FitAppMVVM.Services
             return result;
         }
 
+        public static async Task<List<Workout>> GetWorkoutByIdAsync(int workoutId)
+        {
+            await InitAsync(); 
+            Console.WriteLine($"Getting exercises for WorkoutId: {workoutId}");
+
+            var result = await _database.Table<Workout>()
+                                        .Where(ex => ex.Id == workoutId).ToListAsync();
+
+            Console.WriteLine($"Found {result.Count} workout");
+            return result;
+        }
 
 
 

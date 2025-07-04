@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,54 +11,53 @@ using FitAppMVVM.Services;
 
 namespace FitAppMVVM.Presentation
 {
-    public partial class WorkoutDetailsViewModel:ObservableObject
+    public partial class WorkoutDetailsViewModel : ObservableObject
     {
-        [ObservableProperty]
-        private int workoutId;
-        public WorkoutDetailsViewModel(int workoutId)
-        {
-            WorkoutId = workoutId;
-        }
+        private int _workoutId;
         public ObservableCollection<WorkoutExercise> Exercises { get; } = new();
 
-
-
-        partial void OnWorkoutIdChanged(int value)
+        public WorkoutDetailsViewModel(int workoutId)
         {
-            _ = LoadExercisesAsync();
+            _workoutId = workoutId;
+            LoadExercises();
         }
 
-        [RelayCommand]
-        public async Task LoadExercisesAsync()
+        private async void LoadExercises()
         {
-            if (WorkoutId == 0) return; // guard clause
-
             await DatabaseService.InitAsync();
-
-            var exercisesFromDb = await DatabaseService.GetExercisesByWorkoutIdAsync(WorkoutId);
+            var exercises = await DatabaseService.GetExercisesByWorkoutIdAsync(_workoutId);
 
             Exercises.Clear();
-            foreach (var exercise in exercisesFromDb)
+            foreach (var exercise in exercises)
             {
                 Exercises.Add(exercise);
             }
         }
 
-        //[RelayCommand]
-        //public async Task LoadExercisesAsync()
+        //private async void LoadWorkout()
         //{
-        //    await DatabaseService.InitAsync(); // Ensure DB is ready
-
-        //    int id = workoutId;
-
-        //    var exercisesFromDb = await DatabaseService.GetExercisesByWorkoutIdAsync(id);
-
-        //    Exercises.Clear();
-        //    foreach (var exercise in exercisesFromDb)
-        //    {
-        //        Exercises.Add(exercise);
-        //    }
+        //    await DatabaseService.InitAsync();
+        //    var exercises = await DatabaseService.GetWorkoutByIdAsync(_workoutId);
+        //    return exercises;
         //}
 
     }
+
+    //[RelayCommand]
+    //public async Task LoadExercisesAsync()
+    //{
+    //    await DatabaseService.InitAsync(); // Ensure DB is ready
+
+    //    int id = workoutId;
+
+    //    var exercisesFromDb = await DatabaseService.GetExercisesByWorkoutIdAsync(id);
+
+    //    Exercises.Clear();
+    //    foreach (var exercise in exercisesFromDb)
+    //    {
+    //        Exercises.Add(exercise);
+    //    }
+    //}
+
 }
+

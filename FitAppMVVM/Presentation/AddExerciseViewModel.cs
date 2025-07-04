@@ -23,19 +23,34 @@ namespace FitAppMVVM.Presentation
         [ObservableProperty]
         private int exerciseWeight;
 
-        
+        [ObservableProperty]
         public int workoutId;
 
-        //public ObservableCollection<WorkoutExercise> WorkoutExercises { get; } = new();
+        
 
+
+
+        public AddExerciseViewModel(int w)
+        {
+            WorkoutId = w;
+            Console.WriteLine($"DEBUG: ViewModel created. Current WorkoutId: {WorkoutId}");
+        }
 
 
         [RelayCommand]
+ 
         public async Task AddExercise()
         {
-           
+            if (string.IsNullOrWhiteSpace(ExerciseName))
+            {
+                // Handle validation error
+                return;
+            }
 
-            await DatabaseService.InitAsync(); // Ensure DB is ready
+            await DatabaseService.InitAsync();
+
+            Console.WriteLine(WorkoutId);
+            
 
             var exercise = new WorkoutExercise
             {
@@ -43,25 +58,23 @@ namespace FitAppMVVM.Presentation
                 Sets = ExerciseSets,
                 Reps = ExerciseReps,
                 Weight = ExerciseWeight,
-                WorkoutId = this.workoutId
+                WorkoutId = WorkoutId
             };
- Console.WriteLine($"Adding exercise with WorkoutId={exercise.WorkoutId}");
-            Console.WriteLine($"Adding exercise with WorkoutId={exercise.ExerciseName}");
+
+            Console.WriteLine(exercise.WorkoutId);
+            Console.WriteLine(exercise.ExerciseName);
 
             await DatabaseService.AddExerciseAsync(exercise);
 
-            
-
-            //ExerciseName = string.Empty;
+            // Clear fields after successful addition
+            ExerciseName = string.Empty;
             ExerciseSets = 0;
-            ExerciseWeight =0;
             ExerciseReps = 0;
-
-            
-
+            ExerciseWeight = 0;
         }
-
-
-
     }
-}
+
+
+
+   }
+
