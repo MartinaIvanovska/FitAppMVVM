@@ -12,11 +12,11 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Buttons -->
+            <!-- buttons -->
             <RowDefinition Height="9*"/>
             <!-- 90% -->
             <RowDefinition Height="1*"/>
-            <!-- 10% buffer or other UI -->
+            <!-- 10% buffer -->
         </Grid.RowDefinitions>
 
         <!-- Month Nav -->
@@ -33,7 +33,7 @@
             <Button Content="▶" Click="NextMonth_Click"/>
         </StackPanel>
 
-        <!-- Calendar content (90% height) -->
+        <!-- calendar content 90% height -->
         <GridView MaxHeight="800" MaxWidth="1200" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" ItemsSource="{Binding Days}"
 ItemContainerStyle="{StaticResource CalendarDayStyle}"  IsItemClickEnabled="True"
           ItemClick="DayClicked">
@@ -43,7 +43,7 @@ ItemContainerStyle="{StaticResource CalendarDayStyle}"  IsItemClickEnabled="True
 
                         <TextBlock Text="{Binding Date.Day}" FontWeight="Bold" FontSize="18"  Margin="0,0,0,4"/>
 
-                        <ScrollViewer VerticalScrollBarVisibility="Auto" Height="100">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" Height="100" IsHitTestVisible="False">
                             <ItemsControl ItemsSource="{Binding Workouts}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>

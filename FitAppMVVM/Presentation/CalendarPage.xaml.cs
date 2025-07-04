@@ -34,6 +34,7 @@ public sealed partial class CalendarPage : Page
     {
         this.Frame.Navigate(typeof(HomePage));
     }
+    
     private async void PreviousMonth_Click(object sender, RoutedEventArgs e)
     {
         await ViewModel.LoadPreviousMonthAsync();

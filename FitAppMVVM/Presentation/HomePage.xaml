@@ -27,7 +27,8 @@
             Grid.Row="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
-            Spacing="16">
+            Spacing="16"
+            Orientation="Horizontal">
 
             <Button Content="Add New Workout" Click="GoToWorkoutsPage_Click" />
             <Button Content="Calendar View" Click="GoToCalendarPage_Click" />

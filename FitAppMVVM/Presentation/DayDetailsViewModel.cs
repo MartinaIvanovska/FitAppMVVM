@@ -21,7 +21,6 @@ namespace FitAppMVVM.Presentation
             set => SetProperty(ref workouts, value);
         }
 
-
         private DateTime selectedDate;
         public DateTime SelectedDate
         {
@@ -29,15 +28,15 @@ namespace FitAppMVVM.Presentation
             set => SetProperty(ref selectedDate, value);
         }
 
-
-
+        public DayDetailsViewModel(Day day)
+        {
+            LoadFromDay(day);
+        }
         public void LoadFromDay(Day day)
         {
             Workouts = new ObservableCollection<Workout> (day.Workouts);
             SelectedDate = day.Date;
         }
-
-
 
     }
 }

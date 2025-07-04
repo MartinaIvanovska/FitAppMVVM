@@ -9,18 +9,24 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <ListView ItemsSource="{Binding Workouts}">
+        <ListView ItemsSource="{Binding Workouts}" IsItemClickEnabled="True" Grid.Row="0"
+          ItemClick="WorkoutListView_ItemClick" Height="500">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="20,20,0,0" HorizontalAlignment="Left" Spacing="16">
                         <TextBlock Text="{Binding Name}" />
                         <TextBlock Text="{Binding Notes}" />
+                        <Button Content="Delete"  Click="DeleteButton_Click"  />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel>
+        <StackPanel Width="500" Grid.Row="1" Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Spacing="15">
             <Button Content="Back To Home Page" Click="GoToHomePage_Click" />
+            <Button Content="Back To Calendar View" Click="GoToCalendarView_Click" />
         </StackPanel>
     </Grid>
 </Page>

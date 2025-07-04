@@ -70,9 +70,6 @@ namespace FitAppMVVM.Presentation
             Days = newDays;
         }
 
-        
-        
-
         public async Task LoadNextMonthAsync()
         {
             CurrentMonth = CurrentMonth.AddMonths(1);
