@@ -114,6 +114,8 @@ public partial class App : Application
             new ViewMap<WorkoutPage, WorkoutViewModel>(),
             new ViewMap<HomePage, HomePageViewModel>(),
             new ViewMap<WorkoutDetailsPage, WorkoutDetailsViewModel>(),
+            //new ViewMap<WorkoutDetailsPage, WorkoutDetailsViewModel>(),
+            //new ViewMap<AddExercisePage, AddExerciseViewModel>(),
             new ViewMap<CalendarPage, CalendarViewModel>(),
             new ViewMap<DayDetailsPage, DayDetailsViewModel>()
         );
@@ -127,6 +129,8 @@ public partial class App : Application
                     new ("Workout", View: views.FindByViewModel<WorkoutViewModel>()),
                     new ("HomePage", View: views.FindByViewModel<HomePageViewModel>(), IsDefault:true),
                     new ("WorkoutDetails", View: views.FindByViewModel<WorkoutDetailsViewModel>()),
+                    //new ("WorkoutDetails", View: views.FindByViewModel<WorkoutDetailsViewModel>()),
+                    //new ("AddExercise", View: views.FindByViewModel<AddExerciseViewModel>()),
                     new ("Calendar", View: views.FindByViewModel<CalendarViewModel>()),
                     new ("DayDetails", View: views.FindByViewModel<DayDetailsViewModel>())
                 ]
