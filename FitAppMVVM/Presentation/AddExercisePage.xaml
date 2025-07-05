@@ -6,9 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Black">
 
-    <Grid Background="#F7F7F7" Padding="30">
+    <Grid Padding="30">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -22,37 +22,37 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- Exercise Name -->
-        <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,10,10" Text="Exercise name:" VerticalAlignment="Center" />
-        <TextBox Text="{Binding ExerciseName, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" 
-             Height="35" CornerRadius="8" Padding="10" Background="#E0E0E0"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,10,16" Text="Exercise name:" VerticalAlignment="Center" 
+                   Foreground="#A26BFF" FontWeight="SemiBold" FontSize="16"/>
+        <TextBox Text="{Binding ExerciseName, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" Margin="0,0,0,16" 
+                 Height="60" CornerRadius="16" Padding="16"
+                 Background="#1E1E2F" Foreground="White" BorderBrush="#7A00CC" BorderThickness="2"/>
 
-        <!-- Sets -->
-        <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,10,10" Text="Sets:" VerticalAlignment="Center" />
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,10,16" Text="Sets:" VerticalAlignment="Center"
+                   Foreground="#A26BFF" FontWeight="SemiBold" FontSize="16"/>
         <NumberBox Text="{Binding ExerciseSets, Mode=TwoWay}" SpinButtonPlacementMode="Inline" Minimum="0" Maximum="100"
-    SmallChange="1" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" Height="40" CornerRadius="8" Padding="10" Background="#E0E0E0"/>
-        
+                   SmallChange="1" Grid.Row="1" Grid.Column="1" Margin="0,0,0,16" Height="60" CornerRadius="16" Padding="16"
+                   Background="#1E1E2F" Foreground="White" BorderBrush="#7A00CC" BorderThickness="2"/>
 
-        <!-- Reps -->
-        <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,10,10" Text="Reps:" VerticalAlignment="Center" />
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,10,16" Text="Reps:" VerticalAlignment="Center"
+                   Foreground="#A26BFF" FontWeight="SemiBold" FontSize="16"/>
         <NumberBox Text="{Binding ExerciseReps, Mode=TwoWay}" SpinButtonPlacementMode="Inline" Minimum="0" Maximum="100"
-SmallChange="1" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" Height="40" CornerRadius="8" Padding="10" Background="#E0E0E0"/>
-       
-        <!-- Weight -->
-        <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,0,10,20" Text="Weight:" VerticalAlignment="Center" />
-        <NumberBox Text="{Binding ExerciseWeight, Mode=TwoWay}" SpinButtonPlacementMode="Inline" Minimum="0" Maximum="100"
-SmallChange="5" Grid.Row="3" Grid.Column="1" Margin="0,0,0,10" Height="40" CornerRadius="8" Padding="10" Background="#E0E0E0"/>
-        
+                   SmallChange="1" Grid.Row="2" Grid.Column="1" Margin="0,0,0,16" Height="60" CornerRadius="16" Padding="16"
+                   Background="#1E1E2F" Foreground="White" BorderBrush="#7A00CC" BorderThickness="2"/>
 
-        <!-- Buttons -->
-        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left" Spacing="10">
-            <Button   Command="{Binding AddExerciseCommand}"  Content="Add" Width="120" Height="40" 
-                Background="#3B82F6" Foreground="White" CornerRadius="10"/>
-            <Button Content="Go back" Click="GoToDetails_click" Width="140" Height="40"
-                Background="#E5E7EB" Foreground="Black" CornerRadius="10"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,0,10,24" Text="Weight:" VerticalAlignment="Center"
+                   Foreground="#A26BFF" FontWeight="SemiBold" FontSize="16"/>
+        <NumberBox Text="{Binding ExerciseWeight, Mode=TwoWay}" SpinButtonPlacementMode="Inline" Minimum="0" Maximum="100"
+                   SmallChange="5" Grid.Row="3" Grid.Column="1" Margin="0,0,0,16" Height="60" CornerRadius="16" Padding="16"
+                   Background="#1E1E2F" Foreground="White" BorderBrush="#7A00CC" BorderThickness="2"/>
+
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left" Spacing="16">
+            <Button Command="{Binding AddExerciseCommand}" Content="Add" Width="120" Height="44"
+                    Background="#7A00CC" Foreground="White" CornerRadius="16" FontWeight="SemiBold" />
+            <Button Content="Go back" Click="GoToDetails_click" Width="140" Height="44"
+                    Background="#A26BFF" Foreground="White" CornerRadius="16" FontWeight="SemiBold" />
         </StackPanel>
 
         <TextBlock Visibility="Collapsed" />
     </Grid>
-
 </Page>

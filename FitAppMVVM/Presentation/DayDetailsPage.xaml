@@ -6,27 +6,86 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Black">
 
-    <Grid>
-        <ListView ItemsSource="{Binding Workouts}" IsItemClickEnabled="True" Grid.Row="0"
-          ItemClick="WorkoutListView_ItemClick" Height="500">
+    <Grid Padding="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+           Text="{Binding SelectedDateDisplay}"
+           FontSize="24"
+           FontWeight="Bold"
+           Foreground="#A26BFF"
+           Margin="0,0,0,8"/>
+
+        <ListView ItemsSource="{Binding Workouts}" IsItemClickEnabled="True" Grid.Row="1" Margin="0,0,0,0">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Margin="20,20,0,0" HorizontalAlignment="Left" Spacing="16">
-                        <TextBlock Text="{Binding Name}" />
-                        <TextBlock Text="{Binding Notes}" />
-                        <Button Content="Delete"  Click="DeleteButton_Click"  />
-                    </StackPanel>
+                    <Border
+                        Height="110"
+                        CornerRadius="20"
+                        Margin="0,0,0,4">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#D1A4FF" Offset="0"/>
+                                <GradientStop Color="#7A00CC" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Grid Padding="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" VerticalAlignment="Center" Spacing="4">
+                                <TextBlock Text="{Binding Name}" FontSize="18" FontWeight="Bold" Foreground="#7A00CC" />
+                                <TextBlock Text="{Binding Notes}" FontSize="14" Foreground="White" />
+                            </StackPanel>
+
+                            <Button Grid.Column="1" Content="Delete"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Right"
+                                    Click="DeleteButton_Click"
+                                    Background="#D1A4FF"
+                                    Padding="10,6"
+                                    MinWidth="80"
+                                    CornerRadius="12"/>
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel Width="500" Grid.Row="1" Orientation="Horizontal"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Bottom"
-            Spacing="15">
-            <Button Content="Back To Home Page" Click="GoToHomePage_Click" />
-            <Button Content="Back To Calendar View" Click="GoToCalendarView_Click" />
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Spacing="40"
+                    Margin="0,0,0,10">
+
+            <!-- Back To Home Page  -->
+            <Button Height="60" Click="GoToHomePage_Click">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#AA88FF" Offset="0"/>
+                        <GradientStop Color="#5555FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <SymbolIcon Symbol="Home"/>
+            </Button>
+            <!-- Back To Calendar Page  -->
+            <Button Height="60" Click="GoToCalendarView_Click">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#AA88FF" Offset="0"/>
+                        <GradientStop Color="#5555FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <SymbolIcon Symbol="Calendar"/>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

@@ -6,7 +6,7 @@
       xmlns:utu="using:Uno.Toolkit.UI"
       xmlns:um="using:Uno.Material"
       NavigationCacheMode="Required"
-      Background="{ThemeResource BackgroundBrush}">
+      Background="White">
   <ScrollViewer IsTabStop="True">
     <Grid utu:SafeArea.Insets="VisibleBounds">
       <Grid.RowDefinitions>

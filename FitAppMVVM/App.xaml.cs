@@ -4,7 +4,7 @@ using SQLite;
 
 namespace FitAppMVVM;
 using FitAppMVVM.Services;
-
+using Microsoft.UI;
 
 public partial class App : Application
 {
@@ -137,4 +137,6 @@ public partial class App : Application
             )
         );
     }
+    
+
 }

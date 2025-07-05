@@ -17,12 +17,16 @@ using Windows.Foundation.Collections;
 
 namespace FitAppMVVM.Presentation;
 using FitAppMVVM.Services;
+using Microsoft.UI;
+
 /// <summary>
 /// An empty page that can be used on its own or navigated to within a Frame.
 /// </summary>
 public sealed partial class HomePage : Page
 {
     public WorkoutViewModel ViewModel { get; set; }
+    private bool isDarkTheme = true;
+
     public HomePage()
     {
         this.InitializeComponent();
@@ -73,7 +77,6 @@ public sealed partial class HomePage : Page
         }
     }
 
-
-
+    
 
 }
