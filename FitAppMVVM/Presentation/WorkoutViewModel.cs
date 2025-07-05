@@ -23,6 +23,7 @@ namespace FitAppMVVM.Presentation
         [ObservableProperty]
         private string notes;
 
+
         public ObservableCollection<Workout> Workouts { get; } = new();
 
 
@@ -43,6 +44,9 @@ namespace FitAppMVVM.Presentation
 
             await DatabaseService.AddWorkoutAsync(workout);
 
+          
+
+
             Workouts.Add(workout);
 
             Name = string.Empty;
@@ -54,6 +58,9 @@ namespace FitAppMVVM.Presentation
 
 
     }
+
+  
+
 }
 
 

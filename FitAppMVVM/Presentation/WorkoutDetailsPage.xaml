@@ -14,10 +14,14 @@
             <!-- Workout Info -->
             <StackPanel Spacing="8">
                 <TextBlock Text="Name:" FontWeight="Bold" FontSize="18"/>
-                <TextBlock x:Name="TextBlockName" FontSize="16"/>
+                <TextBlock x:Name="TextBlockName" />
+                
+              
 
                 <TextBlock Text="Note:" FontWeight="Bold" FontSize="18"/>
-                <TextBlock x:Name="TextBlockNote" FontSize="16"/>
+                <TextBlock x:Name="TextBlockNote" />
+
+                <TextBlock x:Name="TextBlockId"  Visibility="Collapsed"/>
             </StackPanel>
 
             <!-- Exercises Header -->
@@ -34,12 +38,12 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
                 <!-- Header Row -->
-                <TextBlock Text="Name" FontWeight="Bold" Grid.Row="0" Grid.Column="0" />
+                <TextBlock Text="Name" FontWeight="Bold" Grid.Row="0" Grid.Column="0"  />
                 <TextBlock Text="Reps" FontWeight="Bold" Grid.Row="0" Grid.Column="1" />
                 <TextBlock Text="Sets" FontWeight="Bold" Grid.Row="0" Grid.Column="2" />
                 <TextBlock Text="Weight" FontWeight="Bold" Grid.Row="0" Grid.Column="3" />
@@ -47,14 +51,28 @@
                 <TextBlock Text="" Grid.Row="0" Grid.Column="5" />
 
                 <!-- Example Data Row (Repeat using ListView/ItemsControl for dynamic content) -->
-                <TextBlock Text="Bench Press" Grid.Row="1" Grid.Column="0"/>
-                <TextBlock Text="10" Grid.Row="1" Grid.Column="1"/>
-                <TextBlock Text="3" Grid.Row="1" Grid.Column="2"/>
-                <TextBlock Text="70kg" Grid.Row="1" Grid.Column="3"/>
-                <Button Content="Edit" Background="#a0a0ff" Foreground="White" Margin="4"
-                        Grid.Row="1" Grid.Column="4"/>
-                <Button Content="Delete" Background="#8080d0" Foreground="White" Margin="4"
-                        Grid.Row="1" Grid.Column="5"/>
+                <ListView ItemsSource="{Binding Exercises}" Grid.Row="1" Grid.ColumnSpan="6">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="{Binding ExerciseName}" Grid.Column="0" />
+                                <TextBlock Text="{Binding Reps}" Grid.Column="1" />
+                                <TextBlock Text="{Binding Sets}" Grid.Column="2" />
+                                <TextBlock Text="{Binding Weight}" Grid.Column="3" />
+                                <Button Click="DeleteExercise_Click" Content="Delete" Grid.Column="4" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </Grid>
 
             <!-- Add Exercise Button -->
@@ -63,7 +81,7 @@
                     Padding="10,5"
                     Margin="0,20,0,0"
                     Background="#e0e0e0"
-                    Foreground="Black"/>
+                    Foreground="Black" Click="AddExercise_Click"/>
 
         </StackPanel>
     </ScrollViewer>
