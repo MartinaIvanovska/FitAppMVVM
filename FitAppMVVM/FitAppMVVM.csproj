@@ -51,9 +51,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Presentation\WorkoutDetailsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+     <Page Update="Presentation\WorkoutDetailsPage.xaml">
+         <Generator>MSBuild:Compile</Generator>
+     </Page>
+  </ItemGroup>
+  <ItemGroup>
+      <Page Update="Presentation\AddExercisePage.xaml">
+          <Generator>MSBuild:Compile</Generator>
+      </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Presentation\CalendarPage.xaml">
