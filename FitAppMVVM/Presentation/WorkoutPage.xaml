@@ -63,7 +63,7 @@
                 </Button>
 
                 <Button Content="Add Workout"
-                        Click="GoToWorkoutDetailsPage_Click"
+                        Click="AddWorkoutAndNavigate_Click"
                         Command="{Binding AddWorkoutCommand}"
                         Padding="12,6"
                         CornerRadius="10"
