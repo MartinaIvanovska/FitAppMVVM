@@ -44,13 +44,11 @@ namespace FitAppMVVM.Presentation
 
             await DatabaseService.AddWorkoutAsync(workout);
 
-          
-
-
             Workouts.Add(workout);
 
             Name = string.Empty;
             Notes = string.Empty;
+
 
         }
 

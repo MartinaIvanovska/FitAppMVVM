@@ -58,7 +58,7 @@ namespace FitAppMVVM.Services
 
         public static async Task<List<WorkoutExercise>> GetExercisesByWorkoutIdAsync(int workoutId)
         {
-            await InitAsync(); // just in case
+            await InitAsync(); 
             Console.WriteLine($"Getting exercises for WorkoutId: {workoutId}");
 
             var result = await _database.Table<WorkoutExercise>()
