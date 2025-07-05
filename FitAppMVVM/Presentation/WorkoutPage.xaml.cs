@@ -34,16 +34,27 @@ namespace FitAppMVVM.Presentation
             this.Frame.Navigate(typeof(HomePage));
         }
 
+        //private void GoToWorkoutDetailsPage_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //    var data = new Workout
+        //    {
+        //        Name = TextBoxName.Text,
+        //        Notes = TextBoxNote.Text
+        //    };
+
+        //    this.Frame.Navigate(typeof(WorkoutDetailsPage), data);
+        //}
+
         private void GoToWorkoutDetailsPage_Click(object sender, RoutedEventArgs e)
         {
-
-            var data = new Workout
+            if (sender is FrameworkElement element && element.DataContext is Workout workout)
             {
-                Name = TextBoxName.Text,
-                Notes = TextBoxNote.Text
-            };
-            
-            this.Frame.Navigate(typeof(WorkoutDetailsPage), data);
+                
+                this.Frame.Navigate(typeof(WorkoutDetailsPage), workout);
+            }
         }
+
+
     }
 }

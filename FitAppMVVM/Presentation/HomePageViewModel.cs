@@ -34,22 +34,7 @@ namespace FitAppMVVM.Presentation
             }
         }
 
-        //public async Task DeleteAsync(Workout workout)
-        //{
-        //    await DatabaseService.InitAsync(); // Ensure DB is ready
-        //    Console.WriteLine("saka");
-        //    await DatabaseService.DeleteWorkoutAsync(workout.Id);
-
-        //    Workouts.Remove(workout);
-          
-        //}
-
-        //public void Delete(Workout w)
-        //{
-        //    Console.WriteLine("prv klik");
-        //    DeleteAsync(w);
-        //}
-
+    
 
 
 
