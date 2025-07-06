@@ -25,7 +25,7 @@
         <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,10,16" Text="Exercise name:" VerticalAlignment="Center" 
                    Foreground="#A26BFF" FontWeight="SemiBold" FontSize="16"/>
         <TextBox Text="{Binding ExerciseName, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" Margin="0,0,0,16" 
-                 Height="60" CornerRadius="16" Padding="16"
+                 Height="70" CornerRadius="16" Padding="16"
                  Background="#1E1E2F" Foreground="White" BorderBrush="#7A00CC" BorderThickness="2"/>
 
         <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,10,16" Text="Sets:" VerticalAlignment="Center"
