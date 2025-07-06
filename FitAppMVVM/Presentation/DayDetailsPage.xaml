@@ -22,7 +22,7 @@
            Foreground="#A26BFF"
            Margin="0,0,0,8"/>
 
-        <ListView ItemsSource="{Binding Workouts}" IsItemClickEnabled="True" Grid.Row="1" Margin="0,0,0,0">
+        <ListView ItemsSource="{Binding Workouts}" IsItemClickEnabled="True" Grid.Row="1" Margin="0,0,0,0" ItemClick="WorkoutListView_ItemClick">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border
