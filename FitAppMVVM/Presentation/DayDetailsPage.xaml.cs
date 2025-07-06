@@ -63,15 +63,35 @@ public sealed partial class DayDetailsPage : Page
         {
             Console.WriteLine("Workout to delete: " + workout.Id);
 
-            await DatabaseService.InitAsync();
-            await DatabaseService.DeleteWorkoutAsync(workout.Id);
-
-            
-            _viewModel.Workouts.Remove(workout);
-            var vm = this.DataContext as HomePageViewModel;
-            if (vm != null)
+            var dialog = new ContentDialog
             {
-                vm.Workouts.Remove(workout);
+                Title = "Confirmation",
+                Content = $"Do you want to delete workout: {workout.Name}?",
+                PrimaryButtonText = "Yes",
+                CloseButtonText = "No",
+                DefaultButton = ContentDialogButton.Primary,
+                XamlRoot = (sender as FrameworkElement)?.XamlRoot
+            };
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+
+                await DatabaseService.InitAsync();
+                await DatabaseService.DeleteWorkoutAsync(workout.Id);
+
+
+                _viewModel.Workouts.Remove(workout);
+                var vm = this.DataContext as HomePageViewModel;
+                if (vm != null)
+                {
+                    vm.Workouts.Remove(workout);
+                }
+            }
+            else
+            {
+                return;
             }
 
         }
