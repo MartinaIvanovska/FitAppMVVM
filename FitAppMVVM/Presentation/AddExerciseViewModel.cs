@@ -26,19 +26,13 @@ namespace FitAppMVVM.Presentation
         [ObservableProperty]
         public int workoutId;
 
-        
-
-
-
         public AddExerciseViewModel(int w)
         {
             WorkoutId = w;
             Console.WriteLine($"DEBUG: ViewModel created. Current WorkoutId: {WorkoutId}");
         }
 
-
         [RelayCommand]
- 
         public async Task AddExercise()
         {
             if (string.IsNullOrWhiteSpace(ExerciseName))
@@ -73,8 +67,6 @@ namespace FitAppMVVM.Presentation
             ExerciseWeight = 0;
         }
     }
-
-
 
    }
 

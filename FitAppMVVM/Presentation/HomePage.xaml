@@ -7,7 +7,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="Black">
+    Background="{StaticResource AppBackgroundBrush}"
+    Foreground="{StaticResource TextPrimaryBrush}">
 
     <Grid Padding="24">
         <Grid.RowDefinitions>
@@ -19,7 +20,7 @@
             <!-- Buttons -->
         </Grid.RowDefinitions>
 
-
+        
 
         <TextBlock Grid.Row="0"
            Text="FIT JOURNAL"

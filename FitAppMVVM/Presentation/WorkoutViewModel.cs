@@ -51,13 +51,19 @@ namespace FitAppMVVM.Presentation
 
 
         }
+        public async Task<Workout> AddWorkoutAsync()
+        {
+            if (string.IsNullOrWhiteSpace(Name))
+                return null;
 
+            var workout = new Workout(Name, Notes);
 
+            await DatabaseService.AddWorkoutAsync(workout); // Your DB logic
 
+            return workout;
+        }
 
     }
-
-  
 
 }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,8 @@ namespace FitAppMVVM.Presentation
     public partial class DayDetailsViewModel : ObservableObject
     {
         private ObservableCollection<Workout> workouts;
+        public string SelectedDateDisplay => SelectedDate.ToString("MMMM dd, yyyy", CultureInfo.InvariantCulture);
+
         public ObservableCollection<Workout> Workouts
         {
             get => workouts;

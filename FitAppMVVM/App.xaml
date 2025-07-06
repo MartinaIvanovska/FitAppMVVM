@@ -4,6 +4,7 @@
        xmlns:utum="using:Uno.Toolkit.UI.Material">
 
   <Application.Resources>
+      
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <!-- Load WinUI resources -->

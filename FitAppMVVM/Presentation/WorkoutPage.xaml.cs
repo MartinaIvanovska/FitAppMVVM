@@ -54,6 +54,20 @@ namespace FitAppMVVM.Presentation
                 this.Frame.Navigate(typeof(WorkoutDetailsPage), workout);
             }
         }
+        private async void AddWorkoutAndNavigate_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext is WorkoutViewModel viewModel)
+            {
+                // Add the workout
+                var newWorkout = await viewModel.AddWorkoutAsync();
+
+                // Navigate only if successfully added
+                if (newWorkout != null)
+                {
+                    this.Frame.Navigate(typeof(WorkoutDetailsPage), newWorkout);
+                }
+            }
+        }
 
 
     }

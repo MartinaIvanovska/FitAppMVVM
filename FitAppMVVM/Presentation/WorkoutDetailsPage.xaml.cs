@@ -61,7 +61,7 @@ namespace FitAppMVVM.Presentation
                 Console.WriteLine("Exercise to delete: " + exercise.Id);
 
                 await DatabaseService.InitAsync();
-                await DatabaseService.DeleteWorkoutAsync(exercise.Id);
+                await DatabaseService.DeleteExerciseAsync(exercise.Id);
 
                 // Remove from the bound collection (and update UI)
                 _viewModel.Exercises.Remove(exercise);
