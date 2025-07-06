@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="Black">
+    Background="{StaticResource AppBackgroundBrush}"
+    Foreground="{StaticResource TextPrimaryBrush}">
 
     <Grid>
 
@@ -67,12 +68,12 @@
                       Margin="0,0,0,80">  
                 <GridView.ItemTemplate>  
                     <DataTemplate>  
-                        <Border Background="#1E1E1E" CornerRadius="12" Padding="10">  
+                        <Border Background="Gray" CornerRadius="12" Padding="10">  
                             <StackPanel Height="150" Width="150">  
                                 <TextBlock Text="{Binding Date.Day}"  
                                            FontWeight="Bold"  
                                            FontSize="18"  
-                                           Foreground="#A26BFF"  
+                                           Foreground="DarkBlue"  
                                            Margin="0,0,0,6"/>  
 
                                 <ScrollViewer VerticalScrollBarVisibility="Auto"  

@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="Black">
+    Background="{StaticResource AppBackgroundBrush}"
+    Foreground="{StaticResource TextPrimaryBrush}">
 
     <ScrollViewer Padding="24">
         <StackPanel Spacing="24">
@@ -16,7 +17,7 @@
                 Click="GoToHomePage_Click"
                 Padding="12,6"
                 CornerRadius="10"
-                Foreground="White">
+                >
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#AA88FF" Offset="0"/>
@@ -36,7 +37,7 @@
                            Foreground="#A26BFF"/>
                 <TextBlock x:Name="TextBlockName"
                            FontSize="16"
-                           Foreground="White"/>
+                           />
 
                 <TextBlock Text="Note:"
                            FontWeight="Bold"
@@ -45,7 +46,7 @@
                            Margin="0,12,0,0"/>
                 <TextBlock x:Name="TextBlockNote"
                            FontSize="16"
-                           Foreground="White"/>
+                          />
 
                 <TextBlock x:Name="TextBlockId"
                            Visibility="Collapsed"/>
@@ -59,7 +60,7 @@
                        Margin="0,20,0,10"/>
 
             <!-- Exercises Table -->
-            <Grid Background="#1E1E1E"
+            <Grid Background="Gray"
                   Padding="10"
                   CornerRadius="10">
                 <Grid.RowDefinitions>
@@ -97,10 +98,10 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Text="{Binding ExerciseName}" Grid.Column="0" Foreground="White" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Reps}" Grid.Column="1" Foreground="White" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Sets}" Grid.Column="2" Foreground="White" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Weight}" Grid.Column="3" Foreground="White" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding ExerciseName}" Grid.Column="0" Foreground="White"  HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Reps}" Grid.Column="1"  Foreground="White" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Sets}" Grid.Column="2"  Foreground="White" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Weight}" Grid.Column="3"  Foreground="White" HorizontalAlignment="Center" />
 
                                 <Button Content="Delete"
                                         Click="DeleteExercise_Click"
