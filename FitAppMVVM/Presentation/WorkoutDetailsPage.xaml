@@ -68,7 +68,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -77,10 +77,10 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Header Row -->
-                <TextBlock Text="Name" FontWeight="Bold" Grid.Row="0" Grid.Column="0" Foreground="#D1A4FF" Padding="10" FontSize="20" HorizontalAlignment="Center"/>
-                <TextBlock Text="Reps" FontWeight="Bold" Grid.Row="0" Grid.Column="1" Foreground="#D1A4FF" Padding="10" FontSize="20" HorizontalAlignment="Center"/>
-                <TextBlock Text="Sets" FontWeight="Bold" Grid.Row="0" Grid.Column="2" Foreground="#D1A4FF" Padding="10" FontSize="20" HorizontalAlignment="Center"/>
-                <TextBlock Text="Weight" FontWeight="Bold" Grid.Row="0" Grid.Column="3" Foreground="#D1A4FF" Padding="10" FontSize="20" HorizontalAlignment="Center"/>
+                <TextBlock Text="Name" FontWeight="Bold" Grid.Row="0" Grid.Column="0" Foreground="#D1A4FF" Padding="10"  HorizontalAlignment="Center"/>
+                <TextBlock Text="Reps" FontWeight="Bold" Grid.Row="0" Grid.Column="1" Foreground="#D1A4FF" Padding="10"  HorizontalAlignment="Center"/>
+                <TextBlock Text="Sets" FontWeight="Bold" Grid.Row="0" Grid.Column="2" Foreground="#D1A4FF" Padding="10"  HorizontalAlignment="Center"/>
+                <TextBlock Text="Weight" FontWeight="Bold" Grid.Row="0" Grid.Column="3" Foreground="#D1A4FF" Padding="10"  HorizontalAlignment="Center"/>
                 <TextBlock Text="" Grid.Row="0" Grid.Column="4"/>
                 <TextBlock Text="" Grid.Row="0" Grid.Column="5"/>
 
@@ -90,7 +90,7 @@
                         <DataTemplate>
                             <Grid Padding="8">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>

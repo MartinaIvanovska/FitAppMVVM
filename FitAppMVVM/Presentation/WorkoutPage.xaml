@@ -28,8 +28,7 @@
             <TextBox x:Name="TextBoxName"
                      Text="{Binding Name, Mode=TwoWay}"
                      PlaceholderText="Enter the name:"
-                     Background="#1E1E1E"
-                     Foreground="White"
+                     
                      BorderBrush="#7A00CC"
                      CornerRadius="10"
                      Padding="12"/>
@@ -37,8 +36,7 @@
             <TextBox x:Name="TextBoxNote"
                      Text="{Binding Notes, Mode=TwoWay}"
                      PlaceholderText="Enter a note:"
-                     Background="#1E1E1E"
-                     Foreground="White"
+                    
                      BorderBrush="#7A00CC"
                      CornerRadius="10"
                      Padding="12"/>
@@ -65,7 +63,7 @@
 
                 <Button Content="Add Workout"
                         Click="AddWorkoutAndNavigate_Click"
-                        Command="{Binding AddWorkoutCommand}"
+                        
                         Padding="12,6"
                         CornerRadius="10"
                         Foreground="White">

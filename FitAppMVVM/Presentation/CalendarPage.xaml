@@ -21,7 +21,7 @@
                     Grid.Row="0"
                     HorizontalAlignment="Center"
                     Spacing="20"
-                    Margin="0,10,0,10">
+                    Margin="10,50,10,10">
             <Button Click="PreviousMonth_Click"
                     
                     CornerRadius="22"
@@ -68,8 +68,8 @@
                       Margin="0,0,0,80">  
                 <GridView.ItemTemplate>  
                     <DataTemplate>  
-                        <Border Background="Gray" CornerRadius="12" Padding="10">  
-                            <StackPanel Height="150" Width="150">  
+                        <Border Background="Gray" CornerRadius="12" Padding="10">
+                            <StackPanel Height="90" Width="90">  
                                 <TextBlock Text="{Binding Date.Day}"  
                                            FontWeight="Bold"  
                                            FontSize="18"  
