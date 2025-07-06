@@ -84,7 +84,7 @@
                 <TextBlock Text="" Grid.Row="0" Grid.Column="4"/>
                 <TextBlock Text="" Grid.Row="0" Grid.Column="5"/>
 
-                <!-- Dynamic List -->
+                <!--  List -->
                 <ListView ItemsSource="{Binding Exercises}" Grid.Row="1" Grid.ColumnSpan="6">
                     <ListView.ItemTemplate>
                         <DataTemplate>

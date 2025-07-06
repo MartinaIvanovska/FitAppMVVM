@@ -15,9 +15,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <!-- ListView -->
             <RowDefinition Height="Auto"/>
-            <!-- Buttons -->
         </Grid.RowDefinitions>
 
         
@@ -36,7 +34,7 @@
                    Foreground="#A26BFF"
                    Margin="0,0,0,16"/>
 
-        <!-- ✅ Workout List (Row 1) -->
+        <!--  Workout List -->
         <ListView 
     Grid.Row="2"
     ItemsSource="{Binding Workouts}"
@@ -58,14 +56,14 @@
                             </LinearGradientBrush>
                         </Border.Background>
 
-                        <!-- Use Grid to align content -->
+                        
                         <Grid Padding="20">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <!-- Left: Texts vertically stacked -->
+                            <!-- Left: Texts vertical-->
                             <StackPanel Grid.Column="0" VerticalAlignment="Center">
                                 <TextBlock Text="{Binding Name}" 
                                    FontSize="18" 
@@ -81,7 +79,7 @@
                                    Margin="0,4,0,0"/>
                             </StackPanel>
 
-                            <!-- Right: Delete button centered -->
+                            <!-- Right: Delete button  -->
                             <Button Grid.Column="1"
                             Content="Delete" 
                             VerticalAlignment="Center"
@@ -95,7 +93,7 @@
         </ListView>
 
 
-        <!-- ✅ Floating Bottom Buttons (Row 2) -->
+        <!--  Bottom Buttons  -->
         <Grid Grid.Row="3" Height="120" VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center"

@@ -34,30 +34,11 @@ namespace FitAppMVVM.Presentation
             }
         }
 
-        //private async void LoadWorkout()
-        //{
-        //    await DatabaseService.InitAsync();
-        //    var exercises = await DatabaseService.GetWorkoutByIdAsync(_workoutId);
-        //    return exercises;
-        //}
+      
 
     }
 
-    //[RelayCommand]
-    //public async Task LoadExercisesAsync()
-    //{
-    //    await DatabaseService.InitAsync(); // Ensure DB is ready
-
-    //    int id = workoutId;
-
-    //    var exercisesFromDb = await DatabaseService.GetExercisesByWorkoutIdAsync(id);
-
-    //    Exercises.Clear();
-    //    foreach (var exercise in exercisesFromDb)
-    //    {
-    //        Exercises.Add(exercise);
-    //    }
-    //}
+ 
 
 }
 

@@ -14,13 +14,11 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using System.Collections.ObjectModel;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
+using FitAppMVVM.Services;
 namespace FitAppMVVM.Presentation
 {
-	/// <summary>
-	/// An empty page that can be used on its own or navigated to within a Frame.
-	/// </summary>
+
 	public sealed partial class WorkoutPage : Page
 	{
 		public WorkoutPage()
@@ -34,18 +32,6 @@ namespace FitAppMVVM.Presentation
             this.Frame.Navigate(typeof(HomePage));
         }
 
-        //private void GoToWorkoutDetailsPage_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //    var data = new Workout
-        //    {
-        //        Name = TextBoxName.Text,
-        //        Notes = TextBoxNote.Text
-        //    };
-
-        //    this.Frame.Navigate(typeof(WorkoutDetailsPage), data);
-        //}
-
         private void GoToWorkoutDetailsPage_Click(object sender, RoutedEventArgs e)
         {
             if (sender is FrameworkElement element && element.DataContext is Workout workout)
@@ -58,10 +44,9 @@ namespace FitAppMVVM.Presentation
         {
             if (this.DataContext is WorkoutViewModel viewModel)
             {
-                // Add the workout
+              
                 var newWorkout = await viewModel.AddWorkoutAsync();
 
-                // Navigate only if successfully added
                 if (newWorkout != null)
                 {
                     this.Frame.Navigate(typeof(WorkoutDetailsPage), newWorkout);

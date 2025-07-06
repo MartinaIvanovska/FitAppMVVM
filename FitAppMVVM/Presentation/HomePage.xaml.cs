@@ -13,15 +13,11 @@ using Microsoft.UI.Xaml.Navigation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace FitAppMVVM.Presentation;
 using FitAppMVVM.Services;
 using Microsoft.UI;
 
-/// <summary>
-/// An empty page that can be used on its own or navigated to within a Frame.
-/// </summary>
+
 public sealed partial class HomePage : Page
 {
     public WorkoutViewModel ViewModel { get; set; }
@@ -36,14 +32,14 @@ public sealed partial class HomePage : Page
 
     private void GoToWorkoutsPage_Click(object sender, RoutedEventArgs e)
     {
-        // Navigate to WorkoutPage
+      
         this.Frame.Navigate(typeof(WorkoutPage));
     }
 
     
     private void GoToCalendarPage_Click(object sender, RoutedEventArgs e)
     {
-        // Navigate to CalendarPage
+        
         this.Frame.Navigate(typeof(CalendarPage));
     }
 
@@ -57,20 +53,40 @@ public sealed partial class HomePage : Page
 
     private async void DeleteButton_Click(object sender, RoutedEventArgs e)
     {
-        // Get the clicked workout
+        
         if (sender is Button button && button.DataContext is Workout workout)
         {
             Console.WriteLine("Workout to delete: " + workout.Id);
 
-            await DatabaseService.InitAsync();
-            await DatabaseService.DeleteWorkoutAsync(workout.Id);
-
-            // Remove from the bound collection (and update UI)
-            ViewModel.Workouts.Remove(workout);
-            var vm = this.DataContext as HomePageViewModel;
-            if (vm != null)
+            var dialog = new ContentDialog
             {
-                vm.Workouts.Remove(workout);
+                Title = "Confirmation",
+                Content = $"Do you want to delete workout: {workout.Name}?",
+                PrimaryButtonText = "Yes",
+                CloseButtonText = "No",
+                DefaultButton = ContentDialogButton.Primary,
+                XamlRoot = (sender as FrameworkElement)?.XamlRoot  
+            };
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+
+                await DatabaseService.InitAsync();
+                await DatabaseService.DeleteWorkoutAsync(workout.Id);
+
+                ViewModel.Workouts.Remove(workout);
+                var vm = this.DataContext as HomePageViewModel;
+                if (vm != null)
+                {
+                    vm.Workouts.Remove(workout);
+                }
+
+            }
+            else
+            {
+                return;
             }
 
 

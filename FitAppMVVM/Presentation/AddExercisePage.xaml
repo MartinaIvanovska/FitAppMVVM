@@ -43,7 +43,7 @@ Foreground="{StaticResource TextPrimaryBrush}">
 
         <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,0,10,24" Text="Weight:" VerticalAlignment="Center"
                    Foreground="#A26BFF" FontWeight="SemiBold" FontSize="16"/>
-        <NumberBox Text="{Binding ExerciseWeight, Mode=TwoWay}" SpinButtonPlacementMode="Inline" Minimum="0" Maximum="100"
+        <NumberBox Text="{Binding ExerciseWeight, Mode=TwoWay}" SpinButtonPlacementMode="Inline" Minimum="0" Maximum="1000"
                    SmallChange="5" Grid.Row="3" Grid.Column="1" Margin="0,0,0,16" Height="60" CornerRadius="16" Padding="16"
                     BorderBrush="#7A00CC" BorderThickness="2"/>
 

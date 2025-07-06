@@ -37,7 +37,7 @@ namespace FitAppMVVM.Presentation
         {
             if (string.IsNullOrWhiteSpace(ExerciseName))
             {
-                // Handle validation error
+                
                 return;
             }
 
@@ -60,7 +60,6 @@ namespace FitAppMVVM.Presentation
 
             await DatabaseService.AddExerciseAsync(exercise);
 
-            // Clear fields after successful addition
             ExerciseName = string.Empty;
             ExerciseSets = 0;
             ExerciseReps = 0;

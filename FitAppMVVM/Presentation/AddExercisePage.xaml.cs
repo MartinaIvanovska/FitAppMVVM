@@ -29,7 +29,6 @@ namespace FitAppMVVM.Presentation
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
            
-
             base.OnNavigatedTo(e);
 
             Console.WriteLine($"Received WorkoutId: {e.Parameter}");
@@ -37,11 +36,8 @@ namespace FitAppMVVM.Presentation
             {
                 _viewModel = new AddExerciseViewModel(workoutId);
                 this.DataContext = _viewModel;
-                //_viewModel.WorkoutId = workoutId;
                 Console.WriteLine($"Received WorkoutId: {workoutId}");
             }
-
-          
         }
         private void GoToDetails_click(object sender, RoutedEventArgs e)
         {

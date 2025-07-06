@@ -32,7 +32,7 @@ namespace FitAppMVVM.Presentation
         public async Task AddWorkout()
         {
 
-            await DatabaseService.InitAsync(); // Ensure DB is ready
+            await DatabaseService.InitAsync(); 
 
             var workout = new Workout
             {
@@ -58,7 +58,7 @@ namespace FitAppMVVM.Presentation
 
             var workout = new Workout(Name, Notes);
 
-            await DatabaseService.AddWorkoutAsync(workout); // Your DB logic
+            await DatabaseService.AddWorkoutAsync(workout); 
 
             return workout;
         }

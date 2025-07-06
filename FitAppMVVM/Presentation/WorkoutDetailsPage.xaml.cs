@@ -33,7 +33,7 @@ namespace FitAppMVVM.Presentation
 
             if (e.Parameter is Workout workout)
             {
-                _workoutId = workout.Id; // Store the ID
+                _workoutId = workout.Id; 
                 _viewModel = new WorkoutDetailsViewModel(workout.Id);
                 TextBlockName.Text = workout.Name;
                 TextBlockNote.Text = workout.Notes;
@@ -49,22 +49,48 @@ namespace FitAppMVVM.Presentation
         private void AddExercise_Click(object sender, RoutedEventArgs e)
         {
            Console.WriteLine($"Passing WorkoutId: {_workoutId}");
-            // Pass the stored workout ID
+           
             this.Frame.Navigate(typeof(AddExercisePage), _workoutId);
         }
 
         
        private async void DeleteExercise_Click(object sender, RoutedEventArgs e)
         {
+            
+
             if (sender is Button button && button.DataContext is WorkoutExercise exercise)
             {
-                Console.WriteLine("Exercise to delete: " + exercise.Id);
 
-                await DatabaseService.InitAsync();
-                await DatabaseService.DeleteExerciseAsync(exercise.Id);
+                var dialog = new ContentDialog
+                {
+                    Title = "Confirmation", 
+                    Content = $"Do you want to delete exercise: {exercise.ExerciseName}?",
+                    PrimaryButtonText = "Yes",
+                    CloseButtonText = "No",
+                    DefaultButton = ContentDialogButton.Primary,
+                    XamlRoot = (sender as FrameworkElement)?.XamlRoot 
+                };
 
-                // Remove from the bound collection (and update UI)
-                _viewModel.Exercises.Remove(exercise);
+                var result = await dialog.ShowAsync();
+
+                if (result == ContentDialogResult.Primary)
+                {
+                    
+                    Console.WriteLine("Exercise to delete: " + exercise.Id);
+
+                    await DatabaseService.InitAsync();
+                    await DatabaseService.DeleteExerciseAsync(exercise.Id);
+
+                    _viewModel.Exercises.Remove(exercise);
+                }
+                else
+                {
+                    
+                    return;
+                }
+
+
+               
 
 
             }

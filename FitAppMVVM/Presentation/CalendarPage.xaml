@@ -55,7 +55,7 @@
             </Button>
         </StackPanel>
 
-        <!-- Calendar GridView -->
+        <!-- Calendar Grid -->
         <Grid Grid.Row="1">  
             <GridView MaxHeight="800"  
                       MaxWidth="1200"  

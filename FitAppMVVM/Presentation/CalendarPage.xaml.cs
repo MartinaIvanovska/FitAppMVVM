@@ -13,12 +13,10 @@ using Microsoft.UI.Xaml.Navigation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+
 
 namespace FitAppMVVM.Presentation;
-/// <summary>
-/// An empty page that can be used on its own or navigated to within a Frame.
-/// </summary>
+
 public sealed partial class CalendarPage : Page
 {
     public CalendarViewModel ViewModel { get; private set; } = new CalendarViewModel();

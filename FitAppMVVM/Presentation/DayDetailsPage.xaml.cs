@@ -14,16 +14,13 @@ using Microsoft.UI.Xaml.Navigation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+
 
 namespace FitAppMVVM.Presentation;
-/// <summary>
-/// An empty page that can be used on its own or navigated to within a Frame.
-/// </summary>
+
 public sealed partial class DayDetailsPage : Page
 {
     private DayDetailsViewModel _viewModel;
-    //private Day _day;
 
     public DayDetailsPage()
     {
@@ -36,9 +33,8 @@ public sealed partial class DayDetailsPage : Page
 
         if (e.Parameter is Day day)
         {
-            //_day = day; // store it if needed later
             _viewModel = new DayDetailsViewModel(day);
-            //_viewModel.LoadFromDay(day); 
+         
             this.DataContext = _viewModel;
 
             Console.WriteLine($"Navigated to {day.Date} with {day.Workouts?.Count ?? 0} workouts");
@@ -62,7 +58,7 @@ public sealed partial class DayDetailsPage : Page
     }
     private async void DeleteButton_Click(object sender, RoutedEventArgs e)
     {
-        // Get the clicked workout
+  
         if (sender is Button button && button.DataContext is Workout workout)
         {
             Console.WriteLine("Workout to delete: " + workout.Id);
@@ -70,7 +66,7 @@ public sealed partial class DayDetailsPage : Page
             await DatabaseService.InitAsync();
             await DatabaseService.DeleteWorkoutAsync(workout.Id);
 
-            // Remove from the bound collection (and update UI)
+            
             _viewModel.Workouts.Remove(workout);
             var vm = this.DataContext as HomePageViewModel;
             if (vm != null)

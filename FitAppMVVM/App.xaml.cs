@@ -109,12 +109,9 @@ public partial class App : Application
     {
         views.Register(
             new ViewMap(ViewModel: typeof(ShellViewModel)),
-            new ViewMap<MainPage, MainViewModel>(),
-            new DataViewMap<SecondPage, SecondViewModel, Entity>(),
             new ViewMap<WorkoutPage, WorkoutViewModel>(),
             new ViewMap<HomePage, HomePageViewModel>(),
             new ViewMap<WorkoutDetailsPage, WorkoutDetailsViewModel>(),
-            //new ViewMap<WorkoutDetailsPage, WorkoutDetailsViewModel>(),
             new ViewMap<AddExercisePage, AddExerciseViewModel>(),
             new ViewMap<CalendarPage, CalendarViewModel>(),
             new ViewMap<DayDetailsPage, DayDetailsViewModel>()
@@ -124,12 +121,9 @@ public partial class App : Application
             new RouteMap("", View: views.FindByViewModel<ShellViewModel>(),
                 Nested:
                 [
-                    new ("Main", View: views.FindByViewModel<MainViewModel>()),
-                    new ("Second", View: views.FindByViewModel<SecondViewModel>()),
                     new ("Workout", View: views.FindByViewModel<WorkoutViewModel>()),
                     new ("HomePage", View: views.FindByViewModel<HomePageViewModel>(), IsDefault:true),
                     new ("WorkoutDetails", View: views.FindByViewModel<WorkoutDetailsViewModel>()),
-                    //new ("WorkoutDetails", View: views.FindByViewModel<WorkoutDetailsViewModel>()),
                     new ("AddExercise", View: views.FindByViewModel<AddExerciseViewModel>()),
                     new ("Calendar", View: views.FindByViewModel<CalendarViewModel>()),
                     new ("DayDetails", View: views.FindByViewModel<DayDetailsViewModel>())

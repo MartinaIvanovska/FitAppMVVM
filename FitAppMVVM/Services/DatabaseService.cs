@@ -21,7 +21,7 @@ namespace FitAppMVVM.Services
 
             string dbPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "workouts.db");
 
-            Console.WriteLine($"📁 DB Path: {dbPath}");
+            Console.WriteLine($"DB Path: {dbPath}");
 
             _database = new SQLiteAsyncConnection(dbPath);
             await _database.CreateTableAsync<Workout>();
